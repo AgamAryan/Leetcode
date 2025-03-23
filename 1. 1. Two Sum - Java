@@ -13,3 +13,6 @@ class Solution {
         return result;
     }
 }
+
+Note - For 1st loop take "i" 1 less than "nums.length", and for 2nd loop take "j" 1 more than "i". 
+Then there be no need to check for 2nd condition.
