@@ -1,0 +1,40 @@
+class Solution {
+    public int mostFrequentEven(int[] nums) {
+        Arrays.sort(nums);
+        System.out.println(Arrays.toString(nums));
+        int odd_num_count=0;
+        int even_num=0;
+        int even_num_count=0;
+        int even_temp_num=0;
+        int even_temp_num_count=0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]%2!=0){
+                odd_num_count++;
+            } else{
+                if(nums[i]==even_num){
+                    even_num=nums[i];
+                    even_num_count++;
+                } else{
+                    if(nums[i]==even_temp_num){
+                        even_temp_num=nums[i];
+                        even_temp_num_count++;
+                    } else{
+                        even_temp_num=nums[i];
+                        even_temp_num_count=0;
+                        even_temp_num_count++;
+                    }
+                }
+            }
+            if(even_temp_num_count>even_num_count){
+                even_num_count=even_temp_num_count;
+                even_temp_num_count=0;
+                even_num=even_temp_num;
+            }
+        }
+        if(odd_num_count==nums.length){
+            return -1;
+        } else{
+            return even_num;
+        }
+    }
+}
